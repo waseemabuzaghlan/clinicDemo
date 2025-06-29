@@ -12,10 +12,8 @@ export interface AuthToken {
 }
 
 export async function login(userName: string, password: string) {
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-  // 1. First call backend API for login
-  const response = await fetch(`${getBaseUrl()}/auth/login`, {
+  // Use the local Next.js API route instead of direct external API call
+  const response = await fetch('/api/auth/login', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -32,15 +30,7 @@ export async function login(userName: string, password: string) {
 
   const data = await response.json();
 
-  // 2. Send the token to /api/auth/set-token to store it securely
-  await fetch('/api/auth/set-token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ token: data.token }),
-  });
-
+  // The token is already set by the API route, so we just return the data
   return data;
 }
 
