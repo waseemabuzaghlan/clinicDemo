@@ -1,0 +1,545 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 201 96% 32%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 201 96% 32%;
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 201 96% 32%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 201 96% 32%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Enhanced Button Styles */
+  .btn-icon {
+    @apply flex h-8 w-8 items-center justify-center rounded-lg transition-all duration-200;
+  }
+  
+  .btn-icon-primary {
+    @apply hover:bg-primary-100 hover:text-primary-600 dark:hover:bg-primary-900/20 dark:hover:text-primary-400;
+  }
+  
+  .btn-icon-secondary {
+    @apply hover:bg-secondary-100 hover:text-secondary-600 dark:hover:bg-secondary-900/20 dark:hover:text-secondary-400;
+  }
+  
+  /* Enhanced Card Styles */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:border-primary-200 dark:hover:border-primary-800;
+  }
+  
+  /* Enhanced Input Styles */
+  .input-search {
+    @apply pl-9 shadow-sm bg-white dark:bg-gray-900 transition-colors duration-200;
+  }
+  
+  /* Enhanced Dialog Styles */
+  .dialog-content {
+    @apply p-6 rounded-xl shadow-xl border-2 border-muted;
+  }
+  
+  /* Enhanced Table Styles */
+  .table-row-hover {
+    @apply hover:bg-muted/50 transition-colors duration-200;
+  }
+  
+  /* Enhanced Icon Container Styles */
+  .icon-container {
+    @apply flex items-center justify-center rounded-lg transition-all duration-200;
+  }
+  
+  .icon-container-primary {
+    @apply bg-primary-100 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400;
+  }
+  
+  .icon-container-secondary {
+    @apply bg-secondary-100 text-secondary-600 dark:bg-secondary-900/20 dark:text-secondary-400;
+  }
+  
+  /* Enhanced Text Styles */
+  .text-title {
+    @apply text-3xl font-bold text-gray-900 dark:text-gray-100;
+  }
+  
+  .text-subtitle {
+    @apply text-sm text-gray-600 dark:text-gray-400;
+  }
+  
+  /* Enhanced Badge Styles */
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-lg text-sm font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-primary-100 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary-100 text-secondary-600 dark:bg-secondary-900/20 dark:text-secondary-400;
+  }
+
+  /* Status Colors */
+  .status-success {
+    @apply bg-success-100 text-success-600 dark:bg-success-900/20 dark:text-success-400;
+  }
+
+  .status-warning {
+    @apply bg-warning-100 text-warning-600 dark:bg-warning-900/20 dark:text-warning-400;
+  }
+
+  .status-error {
+    @apply bg-destructive/10 text-destructive dark:bg-destructive/20 dark:text-destructive-foreground;
+  }
+
+  .status-info {
+    @apply bg-info-100 text-info-600 dark:bg-info-900/20 dark:text-info-400;
+  }
+
+  /* Enhanced Gradients */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-secondary-500 to-secondary-600;
+  }
+
+  /* Enhanced Shadows */
+  .shadow-card {
+    @apply shadow-lg hover:shadow-xl transition-shadow duration-200;
+  }
+
+  .shadow-button {
+    @apply shadow-md hover:shadow-lg transition-shadow duration-200;
+  }
+
+  /* Enhanced Animations */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Enhanced Layout Components */
+  .page-container {
+    @apply p-8 space-y-8;
+  }
+
+  .page-header {
+    @apply flex items-center justify-between mb-8;
+  }
+
+  .section-header {
+    @apply flex items-center gap-4 mb-6;
+  }
+
+  .icon-box {
+    @apply flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10;
+  }
+
+  .data-grid {
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-4;
+  }
+
+  /* Enhanced Form Elements */
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+  }
+
+  .form-input {
+    @apply rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+  }
+
+  /* Enhanced Navigation */
+  .nav-link {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors;
+  }
+
+  .nav-link-active {
+    @apply bg-primary/10 text-primary;
+  }
+
+  /* Enhanced Data Display */
+  .stat-card {
+    @apply rounded-xl border bg-card p-6 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold;
+  }
+
+  .stat-label {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Enhanced Feedback Elements */
+  .alert-box {
+    @apply rounded-lg border p-4 mb-4;
+  }
+
+  .alert-success {
+    @apply bg-success-50 border-success-200 text-success-700;
+  }
+
+  .alert-warning {
+    @apply bg-warning-50 border-warning-200 text-warning-700;
+  }
+
+  .alert-error {
+    @apply bg-destructive/10 border-destructive/20 text-destructive;
+  }
+
+  .alert-info {
+    @apply bg-info-50 border-info-200 text-info-700;
+  }
+
+  /* Custom Animations */
+  @keyframes pulse-slow {
+    0%, 100% { 
+      opacity: 0.3; 
+      transform: scale(1); 
+    }
+    50% { 
+      opacity: 0.6; 
+      transform: scale(1.02); 
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+      opacity: 0.3; 
+    }
+    50% { 
+      transform: translateY(-20px) rotate(5deg); 
+      opacity: 0.6; 
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float-delayed {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+      opacity: 0.4; 
+    }
+    50% { 
+      transform: translateY(-15px) rotate(-3deg); 
+      opacity: 0.7; 
+    }
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  /* Enhanced focus states for search input */
+  .search-input-container:focus-within .search-icon-container {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .search-input-container.patient-theme:focus-within .search-icon-container {
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1), 0 0 20px rgba(34, 197, 94, 0.15);
+  }
+
+  .group:focus-within .animate-focus-glow {
+    animation: focus-glow 0.3s ease-out forwards;
+  }
+
+  @keyframes focus-glow {
+    0% { 
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); 
+    }
+    100% { 
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 0 20px rgba(59, 130, 246, 0.2); 
+    }
+  }
+
+  /* Time picker specific animations */
+  @keyframes time-picker-slide-in {
+    0% { 
+      opacity: 0; 
+      transform: translateY(-10px) scale(0.95); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
+  }
+
+  .time-picker-popover {
+    animation: time-picker-slide-in 0.2s ease-out;
+  }
+
+  @keyframes time-button-press {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+
+  .time-button:active {
+    animation: time-button-press 0.15s ease-out;
+  }
+
+  /* Enhanced focus states for time picker themes */
+  .time-picker-container.purple-theme:focus-within {
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1), 0 0 20px rgba(147, 51, 234, 0.15);
+  }
+
+  .time-picker-container.orange-theme:focus-within {
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1), 0 0 20px rgba(234, 88, 12, 0.15);
+  }
+
+  /* Gradient animation for time picker buttons */
+  @keyframes gradient-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .gradient-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background-size: 200% 100%;
+    animation: gradient-shimmer 2s infinite;
+  }
+
+  /* Gradient animation for backgrounds */
+  @keyframes gradient-x {
+    0%, 100% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 4s ease-in-out infinite;
+  }
+
+  /* Enhanced button press animation */
+  @keyframes button-press-enhanced {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(0.95) rotate(-0.5deg); }
+    50% { transform: scale(0.92) rotate(0deg); }
+    75% { transform: scale(0.95) rotate(0.5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  .time-button:active {
+    animation: button-press-enhanced 0.2s ease-out;
+  }
+  /* PhoneInput Mobile Number Dropdown Styles */
+  .phone-input-container {
+    position: relative !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  .phone-input-container * {
+    overflow: visible !important;
+  }
+
+  .react-tel-input {
+    position: relative !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  /* Input field styling for consistency */
+  .react-tel-input .form-control {
+    border: 1px solid rgba(229, 231, 235, 0.6) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 0.75rem !important;
+    height: 48px !important;
+    font-size: 0.875rem !important;
+    padding: 0.75rem !important;
+    padding-left: 60px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: none !important;
+  }
+
+  .react-tel-input .form-control:focus {
+    border-color: rgba(34, 197, 94, 0.7) !important;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1) !important;
+    outline: none !important;
+  }
+
+  /* Flag button styling */
+  .react-tel-input .flag-dropdown {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0.75rem 0 0 0.75rem !important;
+    width: 52px !important;
+    height: 46px !important;
+  }
+
+  .react-tel-input .selected-flag {
+    border-radius: 0.75rem 0 0 0.75rem !important;
+    padding: 0 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .react-tel-input .selected-flag:hover {
+    background-color: rgba(34, 197, 94, 0.05) !important;
+  }
+
+  /* Light mode country dropdown styles */
+  .react-tel-input .country-list {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(229, 231, 235, 0.6) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    z-index: 99999 !important;
+    position: absolute !important;
+    max-height: 200px !important;
+    width: 300px !important;
+    overflow-y: auto !important;
+  }
+
+  .react-tel-input .country-list .country {
+    background-color: transparent !important;
+    color: rgb(55, 65, 81) !important;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.3) !important;
+    padding: 10px 12px !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+  }
+
+  .react-tel-input .country-list .country:hover,
+  .react-tel-input .country-list .country.highlight {
+    background-color: rgba(34, 197, 94, 0.1) !important;
+    color: rgb(34, 197, 94) !important;
+  }
+
+  .react-tel-input .country-list .search-box {
+    background-color: rgba(248, 250, 252, 0.9) !important;
+    border: 1px solid rgba(229, 231, 235, 0.6) !important;
+    color: rgb(55, 65, 81) !important;
+    border-radius: 8px !important;
+    margin: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+  }
+
+  .react-tel-input .country-list .search-box::placeholder {
+    color: rgb(107, 114, 128) !important;
+  }
+
+  .react-tel-input .country-list .search-box:focus {
+    border-color: rgba(34, 197, 94, 0.7) !important;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.1) !important;
+    outline: none !important;
+  }
+
+  /* Dark mode styles */
+  .dark .react-tel-input .form-control {
+    border: 1px solid rgba(75, 85, 99, 0.6) !important;
+    background: rgba(31, 41, 55, 0.8) !important;
+    color: rgb(229, 231, 235) !important;
+  }
+
+  .dark .react-tel-input .form-control:focus {
+    border-color: rgba(34, 197, 94, 0.7) !important;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1) !important;
+  }
+
+  .dark .react-tel-input .country-list {
+    background-color: rgba(31, 41, 55, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(75, 85, 99, 0.6) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .dark .react-tel-input .country-list .country {
+    background-color: transparent !important;
+    color: rgb(229, 231, 235) !important;
+    border-bottom: 1px solid rgba(75, 85, 99, 0.3) !important;
+  }
+
+  .dark .react-tel-input .country-list .country:hover,
+  .dark .react-tel-input .country-list .country.highlight {
+    background-color: rgba(34, 197, 94, 0.1) !important;
+    color: rgb(34, 197, 94) !important;
+  }
+
+  .dark .react-tel-input .country-list .search-box {
+    background-color: rgba(55, 65, 81, 0.9) !important;
+    border: 1px solid rgba(75, 85, 99, 0.6) !important;
+    color: rgb(229, 231, 235) !important;
+  }
+
+  .dark .react-tel-input .country-list .search-box::placeholder {
+    color: rgb(156, 163, 175) !important;
+  }
+
+  .dark .react-tel-input .country-list .search-box:focus {
+    border-color: rgba(34, 197, 94, 0.7) !important;
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.1) !important;
+  }
+}
